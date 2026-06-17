@@ -1,0 +1,16 @@
+# From 
+FROM node:lts-alpine
+
+# Set working directory
+
+WORKDIR /usr/app
+# Copy package.json and Install dependencies
+
+COPY package.json ./
+RUN npm install 
+
+# Copy all files
+COPY . .
+
+# Run the application
+CMD ["npm","run","start"]
