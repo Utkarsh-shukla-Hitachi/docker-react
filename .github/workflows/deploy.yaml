@@ -5,10 +5,11 @@ on:
     branches:
       - main
 
+  workflow_dispatch:
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
 
     steps:
       - name: Checkout source
@@ -34,3 +35,4 @@ jobs:
           region: ap-south-1
           version_label: ${{ github.sha }}
           deployment_package: deploy.zip
+          wait_for_environment_recovery: 30
